@@ -290,9 +290,9 @@ class CertificatesV1 extends Worker
      *
      * @param string $domain Domain which certificate was generated for
      *
-     * @return int
+     * @return string
      */
-    private function getRenewDate(string $domain): int
+    private function getRenewDate(string $domain): string
     {
         $certPath = APP_STORAGE_CERTIFICATES . '/' . $domain . '/cert.pem';
         $certData = openssl_x509_parse(file_get_contents($certPath));
