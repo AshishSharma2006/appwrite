@@ -110,7 +110,7 @@ class TypeRegistry
                         $complexModel = self::$models[$type];
                         $type = self::get($complexModel->getType());
                     } catch (\Exception) {
-                        Console::error('Could not find model for ' . $type);
+                        Console::error('Could not find model for type: ' . $type);
                     }
                 }
 
@@ -143,6 +143,11 @@ class TypeRegistry
     public static function set(string $type, Type $typeObject): void
     {
         self::$typeMapping[$type] = $typeObject;
+    }
+
+    public static function clear(): void
+    {
+        self::$typeMapping = [];
     }
 
     /**

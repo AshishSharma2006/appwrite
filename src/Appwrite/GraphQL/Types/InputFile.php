@@ -16,7 +16,7 @@ class InputFile extends ScalarType
 
     public function serialize($value)
     {
-        throw new InvariantViolation('`InputFile` cannot be serialized');
+        return '';
     }
 
     public function parseValue($value)
@@ -26,6 +26,6 @@ class InputFile extends ScalarType
 
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
-        throw new Error('`InputFile` cannot be hardcoded in query, be sure to conform to GraphQL multipart request specification. Instead got: ' . $valueNode->kind, $valueNode);
+        throw new \Error('`InputFile` cannot be hardcoded in query, be sure to conform to GraphQL multipart request specification. Instead got: ' . $valueNode->kind, $valueNode);
     }
 }
